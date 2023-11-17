@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ticket Tracker Application</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center bg-burlywood text-mediumvioletred">List Of Tickets</h1>
+        <form th:action="@{/create}" th:object="${ticket}" method="post">
+            <div class="form-group">
+                <label for="id">#</label>
+                <input type="text" id="id" name="id" th:field="*{id}" readonly class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="title">Ticket Title</label>
+                <input type="text" id="title" name="title" th:field="*{title}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Ticket Short Description</label>
+                <input type="text" id="description" name="description" th:field="*{shortDescription}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="createdOn">Ticket Created On</label>
+                <input type="text" id="createdOn" name="createdOn" th:field="*{createdDate}" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Ticket</button>
+        </form>
+    </div>
+</body>
+</html>

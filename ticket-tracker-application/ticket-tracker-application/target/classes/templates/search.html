@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ticket Tracker Application</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<h2>List of Tickets</h2>
+		<form class="form-inline mb-2">
+			<div class="form-group">
+				<label for="name"></label>
+				<input type="text" id="name" name="name" class="form-control">
+			</div>
+			<button type="submit" class="btn btn-primary ml-2">Search</button>
+		</form>
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Created On</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ticket : ${searchResults}">
+					<td th:text="${ticket.id}"></td>
+					<td th:text="${ticket.title}"></td>
+					<td th:text="${ticket.shortDescription}"></td>
+					<td th:text="${ticket.createdDate}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Welcome to App</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="text-center bg-burlywood text-mediumvioletred">Update Your Ticket</h1>
+		<div>
+			<form th:action="@{/updateTicket}" th:object="${ticket}" method="post">
+				<div class="form-group">
+					<label for="id">Ticket ID</label>
+					<input type="text" name="id" id="id" th:field="*{id}" class="form-control" readonly>
+				</div>
+
+				<div class="form-group">
+					<label for="title">Title</label>
+					<input type="text" name="title" id="title" th:field="*{title}" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="shortDescription">Ticket Short Description</label>
+					<input type="text" name="shortDescription" id="shortDescription" th:field="*{shortDescription}"
+						class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="createdDate">Ticket Created On</label>
+					<input type="text" name="createdDate" id="createdDate" th:field="*{createdDate}"
+						class="form-control">
+				</div>
+
+				<button type="submit" class="btn btn-primary">Update</button>
+				<button type="reset" class="btn btn-secondary">Clear</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
